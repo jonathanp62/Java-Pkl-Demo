@@ -1,10 +1,11 @@
 package net.jmp.demo.pkl;
 
 /*
+ * (#)Main.java 0.2.0   02/18/2024
  * (#)Main.java 0.1.0   02/17/2024
  *
  * @author    Jonathan Parker
- * @version   0.1.0
+ * @version   0.2.0
  * @since     0.1.0
  *
  * MIT License
@@ -75,7 +76,18 @@ public final class Main {
 
         final var birds = config.as(Birds.class);
 
-        this.logger.info("There are {} birds configured", birds.birds.size());
+        this.logger.info("There are {} birds configured:", birds.birds.size());
+
+        final var keys = birds.birds.keySet();
+
+        keys.forEach(this.logger::info);    // key -> this.logger.info(key)
+
+        final var parrot = birds.birds.get("Parrot");
+        final var parrotFeatures = parrot.features;
+
+        this.logger.info("Parrot voice mimickry: {}", parrotFeatures.voiceMimickry);
+        this.logger.info("Parrot Flies         : {}", parrotFeatures.flies);
+        this.logger.info("Parrot Swims         : {}", parrotFeatures.swims);
 
         if (this.logger.isInfoEnabled())
             this.logger.info(birds.birds.get("Parrot").toString());
@@ -112,6 +124,22 @@ public final class Main {
 
         if (this.logger.isInfoEnabled())
             this.logger.info(application.toString());
+
+        final var hostName = application.hostname;
+        final var port = application.port;
+        final var environment = application.environment;
+
+        this.logger.info("Host name  : {}", hostName);
+        this.logger.info("Port       : {}", port);
+        this.logger.info("Environment: {}", environment);
+
+        final var database = application.database;
+
+        this.logger.info("DB user: {}", database.username);
+        this.logger.info("DB pass: {}", database.password);
+        this.logger.info("DB host: {}", database.host);
+        this.logger.info("DB port: {}", database.port);
+        this.logger.info("DB name: {}", database.dbName);
 
         this.logger.exit();
     }

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
+ (#)pom.xml	0.2.0	02/18/2024
  (#)pom.xml	0.1.0	02/17/2024
 
  @author   Jonathan Parker
- @version  0.1.0
+ @version  0.2.0
  @since    0.1.0
 
  MIT License
@@ -37,7 +38,7 @@
   <groupId>net.jmp.demo.pkl</groupId>
   <artifactId>pkl-demo</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.0</version>
+  <version>0.2.0</version>
   <name>Pkl Demonstration</name>
   <description>
     A demonstration program of Pkl

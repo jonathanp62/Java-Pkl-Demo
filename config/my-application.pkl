@@ -1,8 +1,9 @@
 //
+// (#)my-application.pkl  0.2.0 02/18/2024
 // (#)my-application.pkl  0.1.0 02/17/2024
 //
 // @author   Jonathan Parker
-// @version  0.1.0
+// @version  0.2.0
 // @since    0.1.0
 //
 // MIT License
@@ -41,5 +42,5 @@ database = new {
   password = read("env:USER")	// Reads an environment variable
   host = "somedomain-db.com"
   port = 8081
-  dbName = "my-app=-db"
+  dbName = "my-app-db"
 }
