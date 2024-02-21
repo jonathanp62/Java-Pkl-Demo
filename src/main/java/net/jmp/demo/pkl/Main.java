@@ -41,8 +41,6 @@ import org.slf4j.LoggerFactory;
 
 import org.slf4j.ext.XLogger;
 
-import java.util.Map;
-
 public final class Main {
     private final XLogger logger = new XLogger(LoggerFactory.getLogger(this.getClass().getName()));
 
@@ -161,8 +159,10 @@ public final class Main {
         if (this.logger.isInfoEnabled()) {
             for (final var element : elements.myElements) {
                 this.logger.info("Name          : {}", element.name);
-                this.logger.info("Size          : {}", element.size);
-                this.logger.info("Duration      : {}", element.duration);
+                this.logger.info("Size Unit     : {}", element.size.getUnit());
+                this.logger.info("Size Value    : {}", element.size.getValue());
+                this.logger.info("Duration Unit : {}", element.duration.getUnit());
+                this.logger.info("Duration Value: {}", element.duration.getValue());
                 this.logger.info("Item Number   : {}", element.itemNumber);
                 this.logger.info("Classification: {}", element.classification);
                 this.logger.info("");

@@ -1,0 +1,24 @@
+= Pkl Demonstration
+
+This demonstration application is for the purpose of using the Pkl language to
+generate configuration that can be consumed by the application program.
+
+== Examples
+
+The birds example demonstrates generating the _Birds.pkl_ file located in _src/main/resources_ into Java code and the consuming the _my-birds.pkl_ file also located in _src/main/resources_.
+
+The application example also demonstrates generating the _Application.pkl_ file located in _src/main/resources_ but the Pkl file consumed is specified in the _config_ directory outside the classpath.
+
+The elements example combines both the data definition with the data to be consumed in one file, _src/main/resources/elements.pkl_.
+
+== Generating Java Files from Pkl Files
+
+Using IntelliJ IDEA, I created a Run/Debug Configuration that invokes the following class:
+
+* org.pkl.codegen.java.Main
+
+The command line arguments to this class are as follows (for the elements example):
+
+* -o src/main src/main/resources/elements.pkl
+
+In this application the Java package is *net.jmp.demo.pkl* so in the _elements.pkl_ file you will notice that the module is named *net.jmp.demo.pkl.Elements*.  Because the output directory of the codegen class is _src/main_, the generated Elements Java file is dropped into the Java package (*net.jmp.demo.pkl*) that I desired.
