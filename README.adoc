@@ -5,9 +5,15 @@ generate configuration that can be consumed by the application program.
 
 == Examples
 
+=== Birds
+
 The birds example demonstrates generating the _Birds.pkl_ file located in _src/main/resources_ into Java code and the consuming the _my-birds.pkl_ file also located in _src/main/resources_.
 
+=== Application
+
 The application example also demonstrates generating the _Application.pkl_ file located in _src/main/resources_ but the Pkl file consumed is specified in the _config_ directory outside the classpath.
+
+=== Elements
 
 The elements example combines both the data definition with the data to be consumed in one file, _src/main/resources/elements.pkl_.
 
