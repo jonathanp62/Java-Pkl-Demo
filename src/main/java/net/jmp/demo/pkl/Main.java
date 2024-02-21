@@ -41,6 +41,8 @@ import org.slf4j.LoggerFactory;
 
 import org.slf4j.ext.XLogger;
 
+import java.util.Map;
+
 public final class Main {
     private final XLogger logger = new XLogger(LoggerFactory.getLogger(this.getClass().getName()));
 
@@ -53,6 +55,7 @@ public final class Main {
 
         this.birds();
         this.application();
+        this.elements();
 
         this.logger.exit();
     }
@@ -141,6 +144,30 @@ public final class Main {
         this.logger.info("DB port: {}", database.port);
         this.logger.info("DB name: {}", database.dbName);
 
+        this.logger.exit();
+    }
+
+    private void elements() {
+        this.logger.entry();
+
+        Config config;
+
+        try (final var evaluator = ConfigEvaluator.preconfigured()) {
+            config = evaluator.evaluate(ModuleSource.modulePath("/elements.pkl"));
+        }
+
+        final var elements = config.as(Elements.class);
+
+        if (this.logger.isInfoEnabled()) {
+            for (final var element : elements.myElements) {
+                this.logger.info("Name          : {}", element.name);
+                this.logger.info("Size          : {}", element.size);
+                this.logger.info("Duration      : {}", element.duration);
+                this.logger.info("Item Number   : {}", element.itemNumber);
+                this.logger.info("Classification: {}", element.classification);
+                this.logger.info("");
+            }
+        }
         this.logger.exit();
     }
 
