@@ -1,11 +1,12 @@
 package net.jmp.demo.pkl;
 
 /*
+ * (#)Main.java 0.3.0   02/22/2024
  * (#)Main.java 0.2.0   02/18/2024
  * (#)Main.java 0.1.0   02/17/2024
  *
  * @author    Jonathan Parker
- * @version   0.2.0
+ * @version   0.3.0
  * @since     0.1.0
  *
  * MIT License
@@ -54,6 +55,7 @@ public final class Main {
         this.birds();
         this.application();
         this.elements();
+        this.items();
 
         this.logger.exit();
     }
@@ -171,6 +173,26 @@ public final class Main {
         this.logger.exit();
     }
 
+    private void items() {
+        this.logger.entry();
+
+        Config config;
+
+        try (final var evaluator = ConfigEvaluator.preconfigured()) {
+            config = evaluator.evaluate(ModuleSource.path("config/items.pkl"));
+        }
+
+        final var itemModule = config.as(ItemModule.class);
+
+        if (this.logger.isInfoEnabled()) {
+            for (final var item : itemModule.items) {
+                this.logger.info("Name       : {}", item.name);
+                this.logger.info("Item Number: {}", item.itemNumber);
+                this.logger.info("");
+            }
+        }
+        this.logger.exit();
+    }
     public static void main(final String[] args) {
         new Main().run();
     }

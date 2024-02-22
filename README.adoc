@@ -17,6 +17,12 @@ The application example also demonstrates generating the _Application.pkl_ file 
 
 The elements example combines both the data definition with the data to be consumed in one file, _src/main/resources/elements.pkl_.
 
+=== Items
+
+The items example is similar to the elements example but separates the data definition _src/main/resources/ItemModule.pkl_ with the data to be consumed, _config/items.pkl_.
+
+This example was interesting as it really seems that Pkl file names should match the name of the module and that when generating elements of a list the type definition must be supplied in order to avoid a 'Dynamic' object being created instead of a 'List' object.
+
 == Generating Java Files from Pkl Files
 
 Using IntelliJ IDEA, I created a Run/Debug Configuration that invokes the following class:
@@ -28,3 +34,5 @@ The command line arguments to this class are as follows (for the elements exampl
 * -o src/main src/main/resources/elements.pkl
 
 In this application the Java package is *net.jmp.demo.pkl* so in the _elements.pkl_ file you will notice that the module is named *net.jmp.demo.pkl.Elements*.  Because the output directory of the codegen class is _src/main_, the generated Elements Java file is dropped into the Java package (*net.jmp.demo.pkl*) that I desired.
+
+==== Current version: 0.3.0.
